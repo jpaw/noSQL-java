@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 import org.joda.time.Instant;
@@ -41,7 +40,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     private final boolean writeBooleanAsString = false;     // compile time preference, currently
     private final boolean writeNulls;
     private final List<Bin> bins;
-    private CompactByteArrayComposer objectComposer = null;  // will be created on demand
+    private CompactByteArrayComposer objectComposer = null;  // will be created on demand 
     
     public AerospikeBinComposer(List<Bin> bins, boolean writeNulls) {
         this.bins = bins;

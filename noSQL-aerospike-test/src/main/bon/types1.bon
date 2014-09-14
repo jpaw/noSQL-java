@@ -1,0 +1,16 @@
+package tests1 {
+    enum Color {
+        RED="R", GREEN="G", BLUE="B"
+    }
+    
+    class AesTest1 {
+        int                 num1;
+        boolean             bool1;
+        Unicode(80)         text1;
+        enum Color          color1;
+        Timestamp(0)        ts1;    
+    }
+    
+    
+    
+}

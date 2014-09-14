@@ -235,7 +235,7 @@
                                 </outputConfigurations>
                             </language>
                             <language>
-                                <setup>de.jpaw.bonaparte.jpa.dsl.BDDLStandaloneSetup</setup>
+                                <setup>de.jpaw.bonaparte.noSQL.dsl.BDslStandaloneSetup</setup>
                                 <outputConfigurations>
                                     <outputConfiguration>
                                         <outputDirectory>${project.basedir}/src/generated</outputDirectory>
@@ -413,6 +413,7 @@
 
     <modules>
         <module>../noSQL-aerospike/pom.xml</module>
+        <module>../noSQL-aerospike-test/pom.xml</module>
     </modules>
 
 </project>
