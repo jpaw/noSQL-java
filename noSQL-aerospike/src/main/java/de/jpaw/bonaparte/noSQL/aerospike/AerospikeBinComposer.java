@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 import org.joda.time.Instant;
@@ -28,10 +27,10 @@ import de.jpaw.bonaparte.pojos.meta.NumericElementaryDataItem;
 import de.jpaw.bonaparte.pojos.meta.ObjectReference;
 import de.jpaw.bonaparte.pojos.meta.TemporalElementaryDataItem;
 import de.jpaw.bonaparte.pojos.meta.XEnumDataItem;
+import de.jpaw.bonaparte.util.DayTime;
 import de.jpaw.enums.TokenizableEnum;
 import de.jpaw.enums.XEnum;
 import de.jpaw.util.ByteArray;
-import de.jpaw.util.DayTime;
 
 /** Composer translates types as possible in Bonaparte into the valid types supported by Aerospike, namely String, Long and byte []. */
 public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
