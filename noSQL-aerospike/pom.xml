@@ -6,7 +6,7 @@
         <groupId>de.jpaw</groupId>
         <artifactId>noSQL-base</artifactId>
         <version>3.0.0-SNAPSHOT</version>
-        <relativePath>../noSQL-base</relativePath>
+        <relativePath>../noSQL-base/pom.xml</relativePath>
     </parent>
 
     <artifactId>noSQL-aerospike</artifactId>
