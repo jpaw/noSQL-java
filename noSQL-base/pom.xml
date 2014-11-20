@@ -21,6 +21,8 @@
         <!-- Own dependencies -->
         <bonaparte.version>3.0.1-SNAPSHOT</bonaparte.version>
         <bonaparte-plugin-version>3.0.1-SNAPSHOT</bonaparte-plugin-version>
+        
+        <aerospike.version>3.0.32</aerospike.version>
     </properties>
     
     <build>
