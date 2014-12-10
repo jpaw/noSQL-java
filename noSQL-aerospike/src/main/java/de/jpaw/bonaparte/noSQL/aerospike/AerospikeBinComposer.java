@@ -17,6 +17,8 @@ import de.jpaw.bonaparte.core.BonaCustom;
 import de.jpaw.bonaparte.core.CompactByteArrayComposer;
 import de.jpaw.bonaparte.core.MessageComposer;
 import de.jpaw.bonaparte.core.StaticMeta;
+import de.jpaw.bonaparte.enums.BonaNonTokenizableEnum;
+import de.jpaw.bonaparte.enums.BonaTokenizableEnum;
 import de.jpaw.bonaparte.pojos.meta.AlphanumericElementaryDataItem;
 import de.jpaw.bonaparte.pojos.meta.BasicNumericElementaryDataItem;
 import de.jpaw.bonaparte.pojos.meta.BinaryElementaryDataItem;
@@ -28,7 +30,6 @@ import de.jpaw.bonaparte.pojos.meta.ObjectReference;
 import de.jpaw.bonaparte.pojos.meta.TemporalElementaryDataItem;
 import de.jpaw.bonaparte.pojos.meta.XEnumDataItem;
 import de.jpaw.bonaparte.util.DayTime;
-import de.jpaw.enums.TokenizableEnum;
 import de.jpaw.enums.XEnum;
 import de.jpaw.util.ByteArray;
 
@@ -286,7 +287,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
 
     @Override
-    public void addEnum(EnumDataItem di, BasicNumericElementaryDataItem ord, Enum<?> n) throws RuntimeException {
+    public void addEnum(EnumDataItem di, BasicNumericElementaryDataItem ord, BonaNonTokenizableEnum n) throws RuntimeException {
         if (n != null) {
             addIt(di, n.ordinal());
         } else {
@@ -295,7 +296,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
 
     @Override
-    public void addEnum(EnumDataItem di, AlphanumericElementaryDataItem token, TokenizableEnum n) throws RuntimeException {
+    public void addEnum(EnumDataItem di, AlphanumericElementaryDataItem token, BonaTokenizableEnum n) throws RuntimeException {
         if (n != null) {
             addIt(di, n.getToken());
         } else {
