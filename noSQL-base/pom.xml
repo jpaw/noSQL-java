@@ -14,7 +14,6 @@
     <packaging>pom</packaging>
 
     <description>Bonaparte persistence layer (noSQL) common configuration (parent pom)</description>
-    <url>http://www.jpaw.de/projects/bonaparte/index.html</url>
 
     <properties>
         <!-- define releases we want to use, to ensure consistency -->
@@ -26,6 +25,18 @@
         <aerospike.version>3.0.32</aerospike.version>
     </properties>
     
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>de.jpaw</groupId>
+                <artifactId>bonaparte-bom</artifactId>
+                <version>3.1.1-SNAPSHOT</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+     
     <build>
         <pluginManagement>
             <plugins>
@@ -201,6 +212,7 @@
     </reporting>
 
     <modules>
+        <module>../noSQL-bom/pom.xml</module>
         <module>../noSQL-aerospike/pom.xml</module>
         <module>../noSQL-aerospike-test/pom.xml</module>
     </modules>

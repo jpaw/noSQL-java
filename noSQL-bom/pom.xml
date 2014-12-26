@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.jpaw</groupId>
+        <artifactId>noSQL-base</artifactId>
+        <version>3.1.1-SNAPSHOT</version>
+        <relativePath>../noSQL-base/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>noSQL-bom</artifactId>
+    <packaging>pom</packaging>
+
+    <description>Bonpaparte persistence noSQL bill of materials</description>
+ 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>de.jpaw</groupId>
+                <artifactId>noSQL-aerospike</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.jpaw</groupId>
+                <artifactId>noSQL-aerospike-test</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
