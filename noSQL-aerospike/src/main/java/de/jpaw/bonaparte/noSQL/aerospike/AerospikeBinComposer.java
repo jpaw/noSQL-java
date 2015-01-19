@@ -72,70 +72,70 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
     
     @Override
-    public void writeNull(FieldDefinition di) throws RuntimeException {
+    public void writeNull(FieldDefinition di) {
         if (writeNulls)
             bins.add(Bin.asNull(di.getName()));
     }
 
     @Override
-    public void writeNullCollection(FieldDefinition di) throws RuntimeException {
+    public void writeNullCollection(FieldDefinition di) {
     }
 
     @Override
-    public void startTransmission() throws RuntimeException {
+    public void startTransmission() {
     }
 
     @Override
-    public void startRecord() throws RuntimeException {
+    public void startRecord() {
     }
 
     @Override
-    public void startArray(FieldDefinition di, int currentMembers, int sizeOfElement) throws RuntimeException {
+    public void startArray(FieldDefinition di, int currentMembers, int sizeOfElement) {
         throw new UnsupportedOperationException("Cannot write arrays into Aerospike currently");
     }
 
     @Override
-    public void startMap(FieldDefinition di, int currentMembers) throws RuntimeException {
+    public void startMap(FieldDefinition di, int currentMembers) {
         throw new UnsupportedOperationException("Cannot write maps into Aerospike currently");
     }
 
     @Override
-    public void writeSuperclassSeparator() throws RuntimeException {
+    public void writeSuperclassSeparator() {
     }
 
     @Override
-    public void terminateMap() throws RuntimeException {
+    public void terminateMap() {
         throw new UnsupportedOperationException("Cannot write maps into Aerospike currently");
     }
 
     @Override
-    public void terminateArray() throws RuntimeException {
+    public void terminateArray() {
         throw new UnsupportedOperationException("Cannot write arrays into Aerospike currently");
     }
 
     @Override
-    public void terminateRecord() throws RuntimeException {
+    public void terminateRecord() {
     }
 
     @Override
-    public void terminateTransmission() throws RuntimeException {
+    public void terminateTransmission() {
     }
 
     @Override
-    public void writeRecord(BonaCustom o) throws RuntimeException {
+    public void writeRecord(BonaCustom o) {
         addField(StaticMeta.OUTER_BONAPORTABLE, o);
     }
 
     @Override
-    public void startObject(ObjectReference di, BonaCustom o) throws RuntimeException {
+    public void startObject(ObjectReference di, BonaCustom o) {
     }
 
     @Override
-    public void terminateObject(ObjectReference di, BonaCustom o) throws RuntimeException {
+    public void terminateObject(ObjectReference di, BonaCustom o) {
     }
 
     @Override
-    public void addField(MiscElementaryDataItem di, boolean b) throws RuntimeException {
+    public void addField(MiscElementaryDataItem di, boolean b) {
         if (writeBooleanAsString)
             addIt(di, b ? "1" : "0");
         else
@@ -143,42 +143,42 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
 
     @Override
-    public void addField(MiscElementaryDataItem di, char c) throws RuntimeException {
+    public void addField(MiscElementaryDataItem di, char c) {
         addIt(di, String.valueOf(c));
     }
 
     @Override
-    public void addField(BasicNumericElementaryDataItem di, double d) throws RuntimeException {
+    public void addField(BasicNumericElementaryDataItem di, double d) {
         addIt(di, Double.toString(d));
     }
 
     @Override
-    public void addField(BasicNumericElementaryDataItem di, float f) throws RuntimeException {
+    public void addField(BasicNumericElementaryDataItem di, float f) {
         addIt(di, Float.toString(f));
     }
 
     @Override
-    public void addField(BasicNumericElementaryDataItem di, byte n) throws RuntimeException {
+    public void addField(BasicNumericElementaryDataItem di, byte n) {
         addIt(di, n);
     }
 
     @Override
-    public void addField(BasicNumericElementaryDataItem di, short n) throws RuntimeException {
+    public void addField(BasicNumericElementaryDataItem di, short n) {
         addIt(di, n);
     }
 
     @Override
-    public void addField(BasicNumericElementaryDataItem di, int n) throws RuntimeException {
+    public void addField(BasicNumericElementaryDataItem di, int n) {
         addIt(di, n);
     }
 
     @Override
-    public void addField(BasicNumericElementaryDataItem di, long n) throws RuntimeException {
+    public void addField(BasicNumericElementaryDataItem di, long n) {
         addIt(di, n);
     }
 
     @Override
-    public void addField(AlphanumericElementaryDataItem di, String s) throws RuntimeException {
+    public void addField(AlphanumericElementaryDataItem di, String s) {
         if (s != null) {
             addIt(di, s);
         } else {
@@ -187,7 +187,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
 
     @Override
-    public void addField(ObjectReference di, BonaCustom obj) throws RuntimeException {
+    public void addField(ObjectReference di, BonaCustom obj) {
         if (obj == null) {
             writeNull(di);
             return;
@@ -206,7 +206,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
 
     @Override
-    public void addField(MiscElementaryDataItem di, UUID n) throws RuntimeException {
+    public void addField(MiscElementaryDataItem di, UUID n) {
         if (n != null) {
             addIt(di, n.toString());
         } else {
@@ -215,7 +215,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
 
     @Override
-    public void addField(BinaryElementaryDataItem di, ByteArray b) throws RuntimeException {
+    public void addField(BinaryElementaryDataItem di, ByteArray b) {
         if (b != null) {
             addIt(di, b.getBytes());
         } else {
@@ -224,7 +224,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
 
     @Override
-    public void addField(BinaryElementaryDataItem di, byte[] b) throws RuntimeException {
+    public void addField(BinaryElementaryDataItem di, byte[] b) {
         if (b != null) {
             addIt(di, b);
         } else {
@@ -233,7 +233,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
 
     @Override
-    public void addField(BasicNumericElementaryDataItem di, BigInteger n) throws RuntimeException {
+    public void addField(BasicNumericElementaryDataItem di, BigInteger n) {
         if (n != null) {
             addIt(di, n.toString());
         } else {
@@ -242,7 +242,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
 
     @Override
-    public void addField(NumericElementaryDataItem di, BigDecimal n) throws RuntimeException {
+    public void addField(NumericElementaryDataItem di, BigDecimal n) {
         if (n != null) {
             addIt(di, n.toPlainString());
         } else {
@@ -251,7 +251,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
 
     @Override
-    public void addField(TemporalElementaryDataItem di, Instant t) throws RuntimeException {
+    public void addField(TemporalElementaryDataItem di, Instant t) {
         if (t != null) {
             addIt(di, t.getMillis());
         } else {
@@ -260,7 +260,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
 
     @Override
-    public void addField(TemporalElementaryDataItem di, LocalDate t) throws RuntimeException {
+    public void addField(TemporalElementaryDataItem di, LocalDate t) {
         if (t != null) {
             addIt(di, DayTime.dayAsInt(t));
         } else {
@@ -269,7 +269,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
 
     @Override
-    public void addField(TemporalElementaryDataItem di, LocalTime t) throws RuntimeException {
+    public void addField(TemporalElementaryDataItem di, LocalTime t) {
         if (t != null) {
             addIt(di, di.getHhmmss() ? DayTime.timeAsInt(t) : t.getMillisOfDay());
         } else {
@@ -278,7 +278,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
 
     @Override
-    public void addField(TemporalElementaryDataItem di, LocalDateTime t) throws RuntimeException {
+    public void addField(TemporalElementaryDataItem di, LocalDateTime t) {
         if (t != null) {
             addIt(di, DayTime.dayAsInt(t) * 1000000000L + (di.getHhmmss() ? DayTime.timeAsInt(t) : t.getMillisOfDay()));
         } else {
@@ -287,7 +287,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
 
     @Override
-    public void addEnum(EnumDataItem di, BasicNumericElementaryDataItem ord, BonaNonTokenizableEnum n) throws RuntimeException {
+    public void addEnum(EnumDataItem di, BasicNumericElementaryDataItem ord, BonaNonTokenizableEnum n) {
         if (n != null) {
             addIt(di, n.ordinal());
         } else {
@@ -296,7 +296,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
 
     @Override
-    public void addEnum(EnumDataItem di, AlphanumericElementaryDataItem token, BonaTokenizableEnum n) throws RuntimeException {
+    public void addEnum(EnumDataItem di, AlphanumericElementaryDataItem token, BonaTokenizableEnum n) {
         if (n != null) {
             addIt(di, n.getToken());
         } else {
@@ -305,11 +305,15 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     }
 
     @Override
-    public void addEnum(XEnumDataItem di, AlphanumericElementaryDataItem token, XEnum<?> n) throws RuntimeException {
+    public void addEnum(XEnumDataItem di, AlphanumericElementaryDataItem token, XEnum<?> n) {
         if (n != null) {
             addIt(di, n.getToken());
         } else {
             writeNull(di);
         }
+    }
+    @Override
+    public boolean addExternal(ObjectReference di, Object obj) {
+        return false;
     }
 }
