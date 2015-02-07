@@ -17,6 +17,11 @@
         <dependencies>
             <dependency>
                 <groupId>de.jpaw</groupId>
+                <artifactId>noSQL-ohm</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.jpaw</groupId>
                 <artifactId>noSQL-aerospike</artifactId>
                 <version>${project.version}</version>
             </dependency>

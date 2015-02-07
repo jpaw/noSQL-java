@@ -1,0 +1,22 @@
+import api.*
+
+/** Customer data sample */
+package customer {
+    default private unsigned trim noControlChars;
+    properties nochange;        // indicate columns which should not be updated to a different value
+    
+    // create some surrogate key
+    class CustomerRef extends Ref {}     // nothing in here, just a retyping 
+    
+    // create some business key
+    final class CustomerKey extends CustomerRef {
+        required Unicode(20)                        customerId;
+    }
+    
+    // the actual data of our customer object
+    class CustomerDTO extends CustomerRef {
+        required Unicode(20)                        customerId                  properties nochange;
+        required boolean                            isActive;
+        required Unicode(80)                        name;
+    }
+}
