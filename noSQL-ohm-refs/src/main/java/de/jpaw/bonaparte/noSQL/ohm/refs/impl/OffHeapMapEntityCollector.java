@@ -69,7 +69,7 @@ public class OffHeapMapEntityCollector implements AutoCloseable {
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() {
         for (OffHeapEntity db : tables)
             db.close();
     }
