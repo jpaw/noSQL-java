@@ -1,7 +1,7 @@
-import api.*
+import apiw.*
 
 /** Customer data sample */
-package customer {
+package customerw {
     default private unsigned trim noControlChars;
     properties nochange;        // indicate columns which should not be updated to a different value
     

@@ -1,8 +1,8 @@
-package de.jpaw.bonaparte.noSQL.ohm.refs.impl;
+package de.jpaw.bonaparte.noSQL.ohm.refsw.impl;
 
 import de.jpaw.bonaparte.noSQL.ohm.impl.PersistenceProviderOHM;
 import de.jpaw.bonaparte.pojos.api.PersistenceProviders;
-import de.jpaw.bonaparte.refs.RequestContext;
+import de.jpaw.bonaparte.refsw.RequestContext;
 import de.jpaw.dp.CustomScope;
 import de.jpaw.dp.Jdp;
 import de.jpaw.dp.Provider;

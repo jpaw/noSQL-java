@@ -1,10 +1,10 @@
-package de.jpaw.bonaparte.noSQL.ohm.impl;
+package de.jpaw.bonaparte.noSQL.ohmp.impl;
 
 import de.jpaw.bonaparte.core.BonaPortable;
 import de.jpaw.bonaparte.core.MessageParserException;
 import de.jpaw.bonaparte.pojos.api.DataWithTracking;
-import de.jpaw.bonaparte.refs.ReferencingComposer;
-import de.jpaw.bonaparte.refs.ReferencingParser;
+import de.jpaw.bonaparte.refsp.ReferencingComposer;
+import de.jpaw.bonaparte.refsp.ReferencingParser;
 import de.jpaw.collections.ByteArrayConverter;
 
 /**

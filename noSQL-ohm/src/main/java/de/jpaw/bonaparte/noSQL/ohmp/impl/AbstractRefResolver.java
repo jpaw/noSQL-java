@@ -1,13 +1,13 @@
-package de.jpaw.bonaparte.noSQL.ohm.impl;
+package de.jpaw.bonaparte.noSQL.ohmp.impl;
 
 import net.openhft.koloboke.collect.map.hash.HashLongObjMap;
 import net.openhft.koloboke.collect.map.hash.HashLongObjMaps;
 import de.jpaw.bonaparte.core.ObjectValidationException;
 import de.jpaw.bonaparte.pojos.api.DataWithTracking;
-import de.jpaw.bonaparte.pojos.api.Ref;
+import de.jpaw.bonaparte.pojos.apip.Ref;
 import de.jpaw.bonaparte.pojos.api.TrackingBase;
 import de.jpaw.bonaparte.refs.PersistenceException;
-import de.jpaw.bonaparte.refs.RefResolver;
+import de.jpaw.bonaparte.refsp.RefResolver;
 import de.jpaw.util.ByteBuilder;
 
 //TODO FIXME:   check nochange columns in update method

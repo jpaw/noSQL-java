@@ -1,4 +1,4 @@
-package de.jpaw.bonaparte.noSQL.ohm.refs.impl;
+package de.jpaw.bonaparte.noSQL.ohm.refsp.impl;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -9,14 +9,14 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.jpaw.bonaparte.noSQL.ohm.OffHeapEntity;
-import de.jpaw.bonaparte.noSQL.ohm.impl.BonaPortableOffHeapConverter;
 import de.jpaw.bonaparte.noSQL.ohm.impl.PersistenceProviderOHM;
-import de.jpaw.bonaparte.pojos.api.Ref;
+import de.jpaw.bonaparte.noSQL.ohmp.OffHeapEntity;
+import de.jpaw.bonaparte.noSQL.ohmp.impl.BonaPortableOffHeapConverter;
+import de.jpaw.bonaparte.pojos.apip.Ref;
 import de.jpaw.bonaparte.pojos.meta.ClassDefinition;
-import de.jpaw.bonaparte.refs.RefResolver;
-import de.jpaw.bonaparte.refs.ReferencingComposer;
-import de.jpaw.bonaparte.refs.ReferencingParser;
+import de.jpaw.bonaparte.refsp.RefResolver;
+import de.jpaw.bonaparte.refsp.ReferencingComposer;
+import de.jpaw.bonaparte.refsp.ReferencingParser;
 import de.jpaw.dp.Jdp;
 import de.jpaw.offHeap.OffHeapTransaction;
 import de.jpaw.offHeap.Shard;
