@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentMap;
 import de.jpaw.bonaparte.core.ObjectValidationException;
 import de.jpaw.bonaparte.pojos.api.DataWithTracking;
 import de.jpaw.bonaparte.pojos.api.TrackingBase;
-import de.jpaw.bonaparte.pojos.apiw.Ref;
+import de.jpaw.bonaparte.pojos.api.AbstractRef;
 import de.jpaw.bonaparte.refs.PersistenceException;
 import de.jpaw.bonaparte.refsw.RefResolver;
 import de.jpaw.util.ByteBuilder;
@@ -31,7 +31,7 @@ import de.jpaw.util.ByteBuilder;
  * @param <DTO>
  * @param <TRACKING>
  */
-public abstract class AbstractRefResolver<REF extends Ref, DTO extends REF, TRACKING extends TrackingBase> implements RefResolver<REF, DTO, TRACKING> {
+public abstract class AbstractRefResolver<REF extends AbstractRef, DTO extends REF, TRACKING extends TrackingBase> implements RefResolver<REF, DTO, TRACKING> {
     private ConcurrentMap<Long,DataWithTracking<DTO, TRACKING>> cache = new ConcurrentHashMap<>(1024 * 1024);
 
     protected ByteBuilder builder;
@@ -65,7 +65,7 @@ public abstract class AbstractRefResolver<REF extends Ref, DTO extends REF, TRAC
     public final Long getRef(REF refObject) throws PersistenceException {
         if (refObject == null)
             return null;
-        Long key = refObject.getObjectRef();
+        Long key = refObject.get$RefW();
         if (key != null)
             return key;
         // shortcuts not possible, try the local reverse cache
@@ -109,7 +109,7 @@ public abstract class AbstractRefResolver<REF extends Ref, DTO extends REF, TRAC
 
     @Override
     public final void update(DTO obj) throws PersistenceException {
-        Long key = obj.getObjectRef();
+        Long key = obj.get$RefW();
         if (key == null)
             throw new PersistenceException(PersistenceException.NO_PRIMARY_KEY, 0L, entityName);
         DataWithTracking<DTO, TRACKING> dwt = getDTONoCacheUpd(key);
@@ -131,10 +131,10 @@ public abstract class AbstractRefResolver<REF extends Ref, DTO extends REF, TRAC
 
     @Override
     public void create(DTO obj) throws PersistenceException {
-        if (obj.getObjectRef() <= 0)
+        if (obj.get$RefW() == null)
             throw new PersistenceException(PersistenceException.NO_PRIMARY_KEY, 0L, entityName);
         DataWithTracking<DTO, TRACKING> dwt = uncachedCreate(obj);
-        cache.put(obj.getObjectRef(), dwt);
+        cache.put(obj.get$RefW(), dwt);
     }
 
     @Override

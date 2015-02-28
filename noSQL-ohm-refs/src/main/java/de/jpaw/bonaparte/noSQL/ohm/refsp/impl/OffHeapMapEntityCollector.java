@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import de.jpaw.bonaparte.noSQL.ohm.impl.PersistenceProviderOHM;
 import de.jpaw.bonaparte.noSQL.ohmp.OffHeapEntity;
 import de.jpaw.bonaparte.noSQL.ohmp.impl.BonaPortableOffHeapConverter;
-import de.jpaw.bonaparte.pojos.apip.Ref;
+import de.jpaw.bonaparte.pojos.api.AbstractRef;
 import de.jpaw.bonaparte.pojos.meta.ClassDefinition;
 import de.jpaw.bonaparte.refsp.RefResolver;
 import de.jpaw.bonaparte.refsp.ReferencingComposer;
@@ -30,7 +30,7 @@ public class OffHeapMapEntityCollector implements AutoCloseable {
     private final List<OffHeapEntity> tables;
     private final ReferencingComposer myComposer;
     private final BonaPortableOffHeapConverter converter;
-    private final Map<ClassDefinition, RefResolver<Ref, ?, ?>> resolvers;
+    private final Map<ClassDefinition, RefResolver<AbstractRef, ?, ?>> resolvers;
     
     // collects all relevant entities from the provided packages
     public OffHeapMapEntityCollector(List<String> packagesToScan) {
@@ -44,7 +44,7 @@ public class OffHeapMapEntityCollector implements AutoCloseable {
         PersistenceProviderOHM ohmContext = new PersistenceProviderOHM(myTransaction);  // sets the singleton
         Jdp.registerWithCustomProvider(PersistenceProviderOHM.class, new PersistenceProviderOHMProvider(ohmContext));
         
-        resolvers = new ConcurrentHashMap<ClassDefinition, RefResolver<Ref,?,?>>(100);
+        resolvers = new ConcurrentHashMap<ClassDefinition, RefResolver<AbstractRef,?,?>>(100);
         ByteBuilder myBuffer = new ByteBuilder(220, StandardCharsets.UTF_8); // estimated max index size
         myComposer = new ReferencingComposer(myBuffer, resolvers);
         // build a common converter

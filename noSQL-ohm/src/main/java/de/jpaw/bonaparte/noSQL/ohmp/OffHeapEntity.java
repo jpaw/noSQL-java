@@ -3,7 +3,7 @@ package de.jpaw.bonaparte.noSQL.ohmp;
 import java.util.Map;
 
 import de.jpaw.bonaparte.noSQL.ohmp.impl.BonaPortableOffHeapConverter;
-import de.jpaw.bonaparte.pojos.apip.Ref;
+import de.jpaw.bonaparte.pojos.api.AbstractRef;
 import de.jpaw.bonaparte.pojos.meta.ClassDefinition;
 import de.jpaw.bonaparte.refsp.RefResolver;
 import de.jpaw.bonaparte.refsp.ReferencingComposer;
@@ -15,7 +15,7 @@ public interface OffHeapEntity {
     public void open(Shard shard,                       // transaction management
             BonaPortableOffHeapConverter converter,     // data object converter
             ReferencingComposer composer,               // index composer
-            Map<ClassDefinition, RefResolver<Ref, ?, ?>> resolvers
+            Map<ClassDefinition, RefResolver<AbstractRef, ?, ?>> resolvers
             );
     
     /** Clears any allocated off heap memory. */

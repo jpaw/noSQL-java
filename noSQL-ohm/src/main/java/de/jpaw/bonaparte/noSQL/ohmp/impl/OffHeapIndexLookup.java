@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.jpaw.bonaparte.core.BonaPortable;
-import de.jpaw.bonaparte.pojos.apip.Ref;
+import de.jpaw.bonaparte.pojos.api.AbstractRef;
 import de.jpaw.bonaparte.pojos.meta.ClassDefinition;
 import de.jpaw.bonaparte.pojos.meta.ObjectReference;
 import de.jpaw.bonaparte.refs.PersistenceException;
@@ -47,13 +47,13 @@ public class OffHeapIndexLookup {
         return hash;
     }
 
-    public OffHeapIndexLookup(Map<ClassDefinition, RefResolver<Ref, ?, ?>> resolvers) {
+    public OffHeapIndexLookup(Map<ClassDefinition, RefResolver<AbstractRef, ?, ?>> resolvers) {
         myBuffer = new ByteBuilder(220, StandardCharsets.UTF_8); // estimated max index size
         myComposer = new ReferencingComposer(myBuffer, resolvers);
     }
 
     /** Returns the key for the object referenced by indexValue. Null checks have been performed before. */
-    public <I extends Ref> long getKeyForIndex(I indexValue, PrimitiveLongKeyOffHeapIndexView<BonaPortable> indexTable, ObjectReference indexClass)
+    public <I extends AbstractRef> long getKeyForIndex(I indexValue, PrimitiveLongKeyOffHeapIndexView<BonaPortable> indexTable, ObjectReference indexClass)
             throws PersistenceException {
         // serialize index to a buffer. remember the previous position for later restore, to allow for nested indexes.
         int currentWriterPos = myBuffer.length();
