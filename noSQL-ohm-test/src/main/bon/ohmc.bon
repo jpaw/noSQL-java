@@ -1,0 +1,22 @@
+import api.*
+
+/** Customer data sample */
+package customerc {
+    default private unsigned trim noControlChars;
+    properties nochange;        // indicate columns which should not be updated to a different value
+    
+    // create some surrogate key
+    abstract class CustomerRef extends AbstractRef {}     // nothing in here, just a retyping 
+    
+    // create some business key
+    class CustomerKey extends CustomerRef refp "return (long)(customerNo << 32) | de.jpaw.api.iso.CountryKeyConverter.countryCodeA2ToInt(countryCode);" {
+        required Uppercase(2)                       countryCode;
+        required int                                customerNo;
+    }
+    
+    // the actual data of our customer object
+    class CustomerDTO extends CustomerKey {
+        required boolean                            isActive;
+        required Unicode(80)                        name;
+    }
+}

@@ -10,7 +10,8 @@ package ohmwTest prefix t1 {
     
     entity CustomerEntity category dat is CustomerDTO ohm {
         tenantClass TenantDiscriminator
-        pk (objectRef)
+        ref CustomerRef
+        pk CustomerRef
         index unique CustomerKey (tenantRef, customerId)
     } 
 }
