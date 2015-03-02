@@ -8,8 +8,5 @@ package ohmcTest prefix t1 {
     }
     
     entity CustomerEntity category dat is CustomerDTO ohm {
-        ref CustomerRef
-        pk CustomerKey
-        refp "return ref <= 0L ? null : new CustomerKey(de.jpaw.api.iso.CountryKeyConverter.intToCountryCodeA2((int)ref), (int)(ref >> 32));"
     } 
 }

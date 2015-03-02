@@ -6,7 +6,10 @@ package customerw {
     properties nochange;        // indicate columns which should not be updated to a different value
     
     // create some surrogate key
-    class CustomerRef extends Ref {}     // nothing in here, just a retyping 
+    class CustomerRef extends Ref
+        isRef isPk
+        keyw "new CustomerRef(ref)" {
+    } 
     
     // create some business key
     final class CustomerKey extends CustomerRef {
