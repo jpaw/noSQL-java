@@ -1,13 +1,18 @@
 package de.jpaw.bonaparte.noSQL.ohmp.impl;
 
+import java.util.List;
+
 import net.openhft.koloboke.collect.map.hash.HashLongObjMap;
 import net.openhft.koloboke.collect.map.hash.HashLongObjMaps;
 import de.jpaw.bonaparte.core.ObjectValidationException;
 import de.jpaw.bonaparte.pojos.api.AbstractRef;
 import de.jpaw.bonaparte.pojos.api.DataWithTracking;
+import de.jpaw.bonaparte.pojos.api.SearchFilter;
+import de.jpaw.bonaparte.pojos.api.SortColumn;
 import de.jpaw.bonaparte.pojos.api.TrackingBase;
 import de.jpaw.bonaparte.refs.PersistenceException;
 import de.jpaw.bonaparte.refsp.RefResolver;
+import de.jpaw.util.ApplicationException;
 import de.jpaw.util.ByteBuilder;
 
 //TODO FIXME:   check nochange columns in update method
@@ -154,14 +159,14 @@ public abstract class AbstractRefResolver<REF extends AbstractRef, DTO extends R
         cache.clear();
     }
     
-//    @Override
-//    public List<Long> queryKeys(int limit, int offset, List<SearchFilter> filters, List<SortColumn> sortColumns) throws ApplicationException {
-//        throw new UnsupportedOperationException();
-//    }
-//
-//    @Override
-//    public List<DataWithTracking<DTO, TRACKING>> query(int limit, int offset, List<SearchFilter> filters, List<SortColumn> sortColumns)
-//            throws ApplicationException {
-//        throw new UnsupportedOperationException();
-//    }
+    @Override
+    public List<Long> queryKeys(int limit, int offset, SearchFilter filter, List<SortColumn> sortColumns) throws ApplicationException {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<DataWithTracking<DTO, TRACKING>> query(int limit, int offset, SearchFilter filter, List<SortColumn> sortColumns)
+            throws ApplicationException {
+        throw new UnsupportedOperationException();
+    }
 }
