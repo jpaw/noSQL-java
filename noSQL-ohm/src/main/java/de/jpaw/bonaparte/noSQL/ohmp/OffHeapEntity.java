@@ -17,7 +17,7 @@ public interface OffHeapEntity {
             ReferencingComposer composer,               // index composer
             Map<ClassDefinition, RefResolver<AbstractRef, ?, ?>> resolvers
             );
-    
+
     /** Clears any allocated off heap memory. */
-    public void close(); 
+    public void close();
 }

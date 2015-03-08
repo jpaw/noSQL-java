@@ -31,7 +31,7 @@ public class OffHeapMapEntityCollector implements AutoCloseable {
     private final ReferencingComposer myComposer;
     private final BonaPortableOffHeapConverter converter;
     private final Map<ClassDefinition, RefResolver<AbstractRef, ?, ?>> resolvers;
-    
+
     // collects all relevant entities from the provided packages
     public OffHeapMapEntityCollector(List<String> packagesToScan) {
         // create a transaction shard
@@ -43,13 +43,13 @@ public class OffHeapMapEntityCollector implements AutoCloseable {
         // must create the provider before installing any of the IInMemDBs
         PersistenceProviderOHM ohmContext = new PersistenceProviderOHM(myTransaction);  // sets the singleton
         Jdp.registerWithCustomProvider(PersistenceProviderOHM.class, new PersistenceProviderOHMProvider(ohmContext));
-        
+
         resolvers = new ConcurrentHashMap<ClassDefinition, RefResolver<AbstractRef,?,?>>(100);
         ByteBuilder myBuffer = new ByteBuilder(220, StandardCharsets.UTF_8); // estimated max index size
         myComposer = new ReferencingComposer(myBuffer, resolvers);
         // build a common converter
         converter = new BonaPortableOffHeapConverter(myComposer, new ReferencingParser(null, 0, 0, resolvers, false));
-        
+
         for (String packageName : packagesToScan) {
             for (Class<? extends OffHeapEntity> cls : ReflectionsPackageCache.get(packageName).getSubTypesOf(OffHeapEntity.class)) {
                 try {
@@ -62,7 +62,7 @@ public class OffHeapMapEntityCollector implements AutoCloseable {
             }
         }
     }
-    
+
     /** Returns the number of entities found. */
     public int size() {
         return tables.size();

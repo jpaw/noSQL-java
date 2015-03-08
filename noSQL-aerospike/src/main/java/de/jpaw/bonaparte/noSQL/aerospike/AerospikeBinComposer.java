@@ -42,7 +42,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     private final boolean writeNulls;
     private final List<Bin> bins;
     private CompactByteArrayComposer objectComposer = null;  // will be created on demand
-    
+
     public AerospikeBinComposer(List<Bin> bins, boolean writeNulls) {
         this.bins = bins;
         this.writeNulls = writeNulls;
@@ -51,16 +51,16 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
         this.bins = new ArrayList<Bin>(maxBins);
         this.writeNulls = writeNulls;
     }
-    
+
     public void reset() {
         bins.clear();
     }
-    
+
     public Bin [] toArray() {
         return bins.toArray(new Bin[bins.size()]);
     }
-    
-    
+
+
     private void addIt(FieldDefinition di, long numeric) {
         bins.add(new Bin(di.getName(), Long.valueOf(numeric)));
     }
@@ -70,7 +70,7 @@ public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
     private void addIt(FieldDefinition di, byte [] b) {
         bins.add(new Bin(di.getName(), b));
     }
-    
+
     @Override
     public void writeNull(FieldDefinition di) {
         if (writeNulls)

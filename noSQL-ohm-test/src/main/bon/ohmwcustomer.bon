@@ -4,18 +4,18 @@ import apiw.*
 package customerw {
     default private unsigned trim noControlChars;
     properties nochange;        // indicate columns which should not be updated to a different value
-    
+
     // create some surrogate key
     class CustomerRef extends Ref
         isRef isPk
         keyw "new CustomerRef(ref)" {
-    } 
-    
+    }
+
     // create some business key
     final class CustomerKey extends CustomerRef {
         required Unicode(20)                        customerId;
     }
-    
+
     // the actual data of our customer object
     class CustomerDTO extends CustomerRef {
         required Unicode(20)                        customerId                  properties nochange;

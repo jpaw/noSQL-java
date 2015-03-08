@@ -6,16 +6,16 @@ import de.jpaw.offHeap.OffHeapTransaction;
 
 public class PersistenceProviderOHM  implements PersistenceProvider {
     private final OffHeapTransaction myTransaction;
-    
+
     /** invoked by factory method? */
     public PersistenceProviderOHM(OffHeapTransaction myTransaction) {
         this.myTransaction = myTransaction;
     }
-    
+
     public OffHeapTransaction getTransaction() {
         return myTransaction;
     }
-    
+
     @Override
     public String getId() {
         return PersistenceProviders.OFFHEAPMAP.name();

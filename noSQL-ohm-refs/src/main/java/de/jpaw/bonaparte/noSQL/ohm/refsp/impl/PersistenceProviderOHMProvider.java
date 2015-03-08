@@ -15,13 +15,13 @@ import de.jpaw.dp.Provider;
  */
 public class PersistenceProviderOHMProvider implements CustomScope<PersistenceProviderOHM> {
     private final Provider<RequestContext> ctxProvider = Jdp.getProvider(RequestContext.class);
-    
+
     private final PersistenceProviderOHM singleton;
-    
+
     public PersistenceProviderOHMProvider(PersistenceProviderOHM instance) {
         this.singleton = instance;
     }
-    
+
     @Override
     public PersistenceProviderOHM get() {
         RequestContext ctx = ctxProvider.get();

@@ -19,16 +19,16 @@ import de.jpaw.util.ByteBuilder;
 
 /**
  * An abstract class which implements the common functionality of a RefResolver for off heap key value stores. The topics are:
- * 
+ *
  * The first topic is operation of a first level cache (on heap) for data objects. Similar to the JPA entity manager, its task is to provide a unique identity
  * for subsequent queries to the same object within a single transaction. It also improves read performance when the data object is of significant size, because
  * no repeated deserializations have to be done. No caching is performed on index values, because the index is assumed to be small and the overhead of cache
  * operation may be higher than actual updates or lookups itself.
- * 
+ *
  * The second aspect is the maintenance of change tracking fields for audit purposes. The tracking fields are available in read/write mode to the application,
  * most operations work on the business fields only (DTO). Tracking data is provided upon request, and in that case, a read-only copy is created and handed
  * back.
- * 
+ *
  * @author Michael Bischoff
  *
  * @param <REF>
@@ -158,7 +158,7 @@ public abstract class AbstractRefResolver<REF extends AbstractRef, DTO extends R
     public final void clear() {
         cache.clear();
     }
-    
+
     @Override
     public List<Long> queryKeys(int limit, int offset, SearchFilter filter, List<SortColumn> sortColumns) throws ApplicationException {
         throw new UnsupportedOperationException();

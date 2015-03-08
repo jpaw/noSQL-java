@@ -26,7 +26,7 @@ import de.jpaw.util.ByteBuilder;
 public class OffHeapIndexLookup {
     private static final Logger LOGGER = LoggerFactory.getLogger(OffHeapIndexLookup.class);
     private final ReferencingComposer myComposer; // required in case of index serializations (which can be nested).
-    
+
     public ReferencingComposer getMyComposer() {
         return myComposer;
     }
@@ -36,8 +36,8 @@ public class OffHeapIndexLookup {
     public ByteBuilder getMyBuffer() {
         return myBuffer;
     }
-    
-    
+
+
     protected int indexHash(int off) {
         int hash = 1;
         final byte [] buffer = myBuffer.getCurrentBuffer();
@@ -57,7 +57,7 @@ public class OffHeapIndexLookup {
             throws PersistenceException {
         // serialize index to a buffer. remember the previous position for later restore, to allow for nested indexes.
         int currentWriterPos = myBuffer.length();
-        
+
         // not working currently: must do object for recursion, but also must do tenantRef!   FIXME TODO
         myComposer.excludeObject(indexValue);
         myComposer.addField(indexClass, indexValue);
