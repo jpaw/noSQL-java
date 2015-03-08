@@ -20,7 +20,6 @@
         <!-- Own dependencies -->
         <bonaparte-plugin.version>3.3.3-SNAPSHOT</bonaparte-plugin.version>
         
-        <koloboke.version>0.6.6</koloboke.version>
         <aerospike.version>3.0.34</aerospike.version>
     </properties>
     

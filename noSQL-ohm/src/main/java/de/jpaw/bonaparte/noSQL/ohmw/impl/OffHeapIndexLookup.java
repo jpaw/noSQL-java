@@ -11,8 +11,8 @@ import de.jpaw.bonaparte.pojos.api.AbstractRef;
 import de.jpaw.bonaparte.pojos.meta.ClassDefinition;
 import de.jpaw.bonaparte.pojos.meta.ObjectReference;
 import de.jpaw.bonaparte.refs.PersistenceException;
-import de.jpaw.bonaparte.refsp.RefResolver;
-import de.jpaw.bonaparte.refsp.ReferencingComposer;
+import de.jpaw.bonaparte.refsw.RefResolver;
+import de.jpaw.bonaparte.refsw.ReferencingComposer;
 import de.jpaw.offHeap.PrimitiveLongKeyOffHeapIndexView;
 import de.jpaw.util.ByteBuilder;
 
