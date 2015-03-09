@@ -10,7 +10,7 @@
     </parent>
     
     <artifactId>noSQL-base</artifactId>
-    <version>3.3.3-SNAPSHOT</version>
+    <version>3.3.3</version>
     <packaging>pom</packaging>
 
     <description>Bonaparte persistence layer (noSQL) common configuration (parent pom)</description>
@@ -18,7 +18,7 @@
     <properties>
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
-        <bonaparte-plugin.version>3.3.3-SNAPSHOT</bonaparte-plugin.version>
+        <bonaparte-plugin.version>3.3.3</bonaparte-plugin.version>
         
         <aerospike.version>3.0.34</aerospike.version>
     </properties>
@@ -28,7 +28,7 @@
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>bonaparte-bom</artifactId>
-                <version>3.3.3-SNAPSHOT</version>
+                <version>3.3.3</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
