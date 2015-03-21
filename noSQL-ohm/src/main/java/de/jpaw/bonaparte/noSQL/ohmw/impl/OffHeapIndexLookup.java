@@ -68,7 +68,7 @@ public class OffHeapIndexLookup {
         // TODO: treat uncommitted changes? assuming data has been flushed to in mem DB already
         long key = indexTable.getUniqueKeyByIndex(myBuffer.getCurrentBuffer(), currentWriterPos, myBuffer.length() - currentWriterPos, indexHash);
         if (key <= 0)
-            throw new PersistenceException(PersistenceException.NO_RECORD_FOR_INDEX, key, null, indexClass.get$PQON(), indexValue.toString());
+            throw new PersistenceException(PersistenceException.NO_RECORD_FOR_INDEX, key, null, indexClass.ret$PQON(), indexValue.toString());
         // restore position to previous state
         myBuffer.setLength(currentWriterPos);
         return key;
