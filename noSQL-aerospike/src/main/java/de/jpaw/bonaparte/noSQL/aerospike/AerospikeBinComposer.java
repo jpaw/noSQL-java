@@ -13,9 +13,9 @@ import org.joda.time.LocalTime;
 
 import com.aerospike.client.Bin;
 
+import de.jpaw.bonaparte.core.AbstractMessageComposer;
 import de.jpaw.bonaparte.core.BonaCustom;
 import de.jpaw.bonaparte.core.CompactByteArrayComposer;
-import de.jpaw.bonaparte.core.MessageComposer;
 import de.jpaw.bonaparte.core.StaticMeta;
 import de.jpaw.bonaparte.enums.BonaNonTokenizableEnum;
 import de.jpaw.bonaparte.enums.BonaTokenizableEnum;
@@ -34,7 +34,7 @@ import de.jpaw.enums.XEnum;
 import de.jpaw.util.ByteArray;
 
 /** Composer translates types as possible in Bonaparte into the valid types supported by Aerospike, namely String, Long and byte []. */
-public class AerospikeBinComposer implements MessageComposer<RuntimeException> {
+public class AerospikeBinComposer extends AbstractMessageComposer<RuntimeException> {
     private final int INITIAL_BUFFER_SIZE = 4000;           // initial buffer size for object serialization
     private final Long ZERO = Long.valueOf(0);
     private final Long ONE = Long.valueOf(1);
