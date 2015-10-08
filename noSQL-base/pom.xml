@@ -20,7 +20,7 @@
         <!-- Own dependencies -->
         <bonaparte-plugin.version>3.6.0-SNAPSHOT</bonaparte-plugin.version>
         
-        <aerospike.version>3.0.34</aerospike.version>
+        <aerospike.version>3.1.6</aerospike.version>    <!-- UPTODATE 2015-10-05 -->
     </properties>
     
     <dependencyManagement>

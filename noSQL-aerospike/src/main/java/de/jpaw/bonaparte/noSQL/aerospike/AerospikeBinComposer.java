@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.joda.time.Instant;
@@ -15,6 +16,7 @@ import com.aerospike.client.Bin;
 
 import de.jpaw.bonaparte.core.AbstractMessageComposer;
 import de.jpaw.bonaparte.core.BonaCustom;
+import de.jpaw.bonaparte.core.BonaparteJsonEscaper;
 import de.jpaw.bonaparte.core.CompactByteArrayComposer;
 import de.jpaw.bonaparte.core.StaticMeta;
 import de.jpaw.bonaparte.enums.BonaNonTokenizableEnum;
@@ -312,8 +314,27 @@ public class AerospikeBinComposer extends AbstractMessageComposer<RuntimeExcepti
             writeNull(di);
         }
     }
+
     @Override
     public boolean addExternal(ObjectReference di, Object obj) {
         return false;
+    }
+
+    @Override
+    public void addField(ObjectReference di, Map<String, Object> obj) {
+        if (obj != null) {
+            addIt(di, BonaparteJsonEscaper.asJson(obj));
+        } else {
+            writeNull(di);
+        }
+    }
+
+    @Override
+    public void addField(ObjectReference di, Object obj) {
+        if (obj != null) {
+            addIt(di, BonaparteJsonEscaper.asJson(obj));
+        } else {
+            writeNull(di);
+        }
     }
 }
