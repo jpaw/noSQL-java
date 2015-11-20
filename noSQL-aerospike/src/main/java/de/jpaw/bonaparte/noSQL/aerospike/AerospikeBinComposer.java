@@ -330,6 +330,15 @@ public class AerospikeBinComposer extends AbstractMessageComposer<RuntimeExcepti
     }
 
     @Override
+    public void addField(ObjectReference di, List<Object> obj) throws RuntimeException {
+        if (obj != null) {
+            addIt(di, BonaparteJsonEscaper.asJson(obj));
+        } else {
+            writeNull(di);
+        }
+    }
+    
+    @Override
     public void addField(ObjectReference di, Object obj) {
         if (obj != null) {
             addIt(di, BonaparteJsonEscaper.asJson(obj));
