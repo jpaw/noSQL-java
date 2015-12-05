@@ -5,12 +5,12 @@
     <parent>
         <groupId>de.jpaw</groupId>
         <artifactId>jpaw-se-parent</artifactId>
-        <version>1.0.9-SNAPSHOT</version>
+        <version>1.0.8</version>
         <relativePath/>
     </parent>
     
     <artifactId>noSQL-base</artifactId>
-    <version>3.7.3-SNAPSHOT</version>
+    <version>3.7.4-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <description>Bonaparte persistence layer (noSQL) common configuration (parent pom)</description>
@@ -18,7 +18,7 @@
     <properties>
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
-        <bonaparte-plugin.version>3.7.3-SNAPSHOT</bonaparte-plugin.version>
+        <bonaparte-plugin.version>3.7.4-SNAPSHOT</bonaparte-plugin.version>
         
         <aerospike.version>3.1.6</aerospike.version>    <!-- UPTODATE 2015-10-05 -->
     </properties>
@@ -28,21 +28,21 @@
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>bonaparte-bom</artifactId>
-                <version>3.7.3-SNAPSHOT</version>
+                <version>3.7.4-SNAPSHOT</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>offheap-bom</artifactId>
-                <version>0.1.6-SNAPSHOT</version>
+                <version>0.1.5</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>jdp-bom</artifactId>
-                <version>0.2.6-SNAPSHOT</version>
+                <version>0.2.6</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
