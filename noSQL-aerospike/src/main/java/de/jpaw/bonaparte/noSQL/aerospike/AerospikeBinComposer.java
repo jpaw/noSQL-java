@@ -337,7 +337,7 @@ public class AerospikeBinComposer extends AbstractMessageComposer<RuntimeExcepti
             writeNull(di);
         }
     }
-    
+
     @Override
     public void addField(ObjectReference di, Object obj) {
         if (obj != null) {

@@ -8,7 +8,7 @@
         <version>1.1.1-SNAPSHOT</version>
         <relativePath/>
     </parent>
-    
+
     <artifactId>noSQL-base</artifactId>
     <version>4.0.8-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -19,10 +19,10 @@
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
         <bonaparte-plugin.version>4.0.8-SNAPSHOT</bonaparte-plugin.version>
-        
+
         <aerospike.version>3.1.6</aerospike.version>    <!-- UPTODATE 2015-10-05 -->
     </properties>
-    
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -48,7 +48,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-     
+
     <build>
         <pluginManagement>
             <plugins>

@@ -12,7 +12,7 @@
     <packaging>pom</packaging>
 
     <description>Bonpaparte persistence noSQL bill of materials</description>
- 
+
     <dependencyManagement>
         <dependencies>
             <dependency>
