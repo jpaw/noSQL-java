@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import org.joda.time.Instant;
-import org.joda.time.LocalDate;
-import org.joda.time.LocalDateTime;
-import org.joda.time.LocalTime;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import com.aerospike.client.Bin;
 
@@ -255,7 +255,7 @@ public class AerospikeBinComposer extends AbstractMessageComposer<RuntimeExcepti
     @Override
     public void addField(TemporalElementaryDataItem di, Instant t) {
         if (t != null) {
-            addIt(di, t.getMillis());
+            addIt(di, DayTime.millisOfEpoch(t));
         } else {
             writeNull(di);
         }
@@ -273,7 +273,7 @@ public class AerospikeBinComposer extends AbstractMessageComposer<RuntimeExcepti
     @Override
     public void addField(TemporalElementaryDataItem di, LocalTime t) {
         if (t != null) {
-            addIt(di, di.getHhmmss() ? DayTime.timeAsInt(t) : t.getMillisOfDay());
+            addIt(di, di.getHhmmss() ? DayTime.timeAsInt(t) : DayTime.millisOfDay(t));
         } else {
             writeNull(di);
         }
@@ -282,7 +282,7 @@ public class AerospikeBinComposer extends AbstractMessageComposer<RuntimeExcepti
     @Override
     public void addField(TemporalElementaryDataItem di, LocalDateTime t) {
         if (t != null) {
-            addIt(di, DayTime.dayAsInt(t) * 1000000000L + (di.getHhmmss() ? DayTime.timeAsInt(t) : t.getMillisOfDay()));
+            addIt(di, DayTime.dayAsInt(t) * 1000000000L + (di.getHhmmss() ? DayTime.timeAsInt(t) : DayTime.millisOfDay(t)));
         } else {
             writeNull(di);
         }
