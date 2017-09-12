@@ -10,7 +10,7 @@ package customerc {
 
     // create some business key
     class CustomerKey extends CustomerRef
-      refp "(long)(customerNo << 32) | de.jpaw.api.iso.CountryKeyConverter.countryCodeA2ToInt(countryCode)"
+      refp "((long)customerNo << 32) | de.jpaw.api.iso.CountryKeyConverter.countryCodeA2ToInt(countryCode)"
       keyp "new CustomerKey(de.jpaw.api.iso.CountryKeyConverter.intToCountryCodeA2((int)ref), (int)(ref >> 32))" {
         required Uppercase(2)                       countryCode;
         required int                                customerNo;
