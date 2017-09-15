@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>noSQL-base</artifactId>
-    <version>4.4.20</version>
+    <version>4.4.21-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <description>Bonaparte persistence layer (noSQL) common configuration (parent pom)</description>
@@ -35,7 +35,7 @@
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>offheap-bom</artifactId>
-                <version>0.2.20</version>
+                <version>0.2.2-SNAPSHOT</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
