@@ -18,7 +18,7 @@
     <properties>
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
-        <bonaparte-plugin.version>4.4.20</bonaparte-plugin.version>
+        <bonaparte-plugin.version>4.4.22</bonaparte-plugin.version>
 
         <aerospike.version>3.1.6</aerospike.version>    <!-- UPTODATE 2015-10-05 -->
     </properties>
@@ -35,7 +35,7 @@
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>offheap-bom</artifactId>
-                <version>0.2.2-SNAPSHOT</version>
+                <version>0.2.20</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
