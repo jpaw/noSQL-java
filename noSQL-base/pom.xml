@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>noSQL-base</artifactId>
-    <version>4.4.22-SNAPSHOT</version>
+    <version>4.4.22</version>
     <packaging>pom</packaging>
 
     <description>Bonaparte persistence layer (noSQL) common configuration (parent pom)</description>
