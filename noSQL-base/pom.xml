@@ -5,12 +5,12 @@
     <parent>
         <groupId>de.jpaw</groupId>
         <artifactId>jpaw-se-parent</artifactId>
-        <version>1.1.4</version>
+        <version>1.1.5</version>
         <relativePath/>
     </parent>
 
     <artifactId>noSQL-base</artifactId>
-    <version>4.4.23</version>
+    <version>4.6.0</version>
     <packaging>pom</packaging>
 
     <description>Bonaparte persistence layer (noSQL) common configuration (parent pom)</description>
@@ -18,7 +18,7 @@
     <properties>
         <!-- define releases we want to use, to ensure consistency -->
         <!-- Own dependencies -->
-        <bonaparte-plugin.version>4.4.23</bonaparte-plugin.version>
+        <bonaparte-plugin.version>4.6.0</bonaparte-plugin.version>
 
         <aerospike.version>3.1.6</aerospike.version>    <!-- UPTODATE 2015-10-05 -->
     </properties>
@@ -28,21 +28,21 @@
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>bonaparte-bom</artifactId>
-                <version>4.4.23</version>
+                <version>4.6.0</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>offheap-bom</artifactId>
-                <version>0.2.20</version>
+                <version>0.2.21</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
             <dependency>
                 <groupId>de.jpaw</groupId>
                 <artifactId>jdp-bom</artifactId>
-                <version>0.4.1</version>
+                <version>0.4.2</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -177,11 +177,6 @@
                             <groupId>de.jpaw.bonaparte-dsl</groupId>
                             <artifactId>de.jpaw.bonaparte.noSQL.dsl</artifactId>
                             <version>${bonaparte-plugin.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>commons-lang</groupId>
-                            <artifactId>commons-lang</artifactId>
-                            <version>2.6</version>
                         </dependency>
                     </dependencies>
                 </plugin>
