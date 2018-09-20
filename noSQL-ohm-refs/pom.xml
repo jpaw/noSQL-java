@@ -4,7 +4,7 @@
     <parent>
         <groupId>de.jpaw</groupId>
         <artifactId>noSQL-base</artifactId>
-        <version>4.8.3</version>
+        <version>4.9.0</version>
         <relativePath>../noSQL-base/pom.xml</relativePath>
     </parent>
 
