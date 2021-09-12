@@ -2,15 +2,14 @@ package de.jpaw.bonaparte.noSQL.aerospike;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-
-import org.joda.time.Instant;
-import org.joda.time.LocalDate;
-import org.joda.time.LocalDateTime;
-import org.joda.time.LocalTime;
 
 import com.aerospike.client.Bin;
 
@@ -33,6 +32,7 @@ import de.jpaw.bonaparte.pojos.meta.TemporalElementaryDataItem;
 import de.jpaw.bonaparte.pojos.meta.XEnumDataItem;
 import de.jpaw.bonaparte.util.DayTime;
 import de.jpaw.enums.XEnum;
+import de.jpaw.fixedpoint.FixedPointBase;
 import de.jpaw.util.ByteArray;
 
 /** Composer translates types as possible in Bonaparte into the valid types supported by Aerospike, namely String, Long and byte []. */
@@ -253,9 +253,18 @@ public class AerospikeBinComposer extends AbstractMessageComposer<RuntimeExcepti
     }
 
     @Override
+    public <F extends FixedPointBase<F>> void addField(BasicNumericElementaryDataItem di, F n) throws RuntimeException {
+        if (n != null) {
+            addIt(di, n.toString());
+        } else {
+            writeNull(di);
+        }
+    }
+
+    @Override
     public void addField(TemporalElementaryDataItem di, Instant t) {
         if (t != null) {
-            addIt(di, t.getMillis());
+            addIt(di, t.toEpochMilli());
         } else {
             writeNull(di);
         }
@@ -270,10 +279,15 @@ public class AerospikeBinComposer extends AbstractMessageComposer<RuntimeExcepti
         }
     }
 
+    // get the time with ms resolution
+    private int timeAsInt(LocalTime t) {
+        return 1000 * (10000 * t.getHour() + 100 * t.getMinute() + t.getSecond()) + (t.getNano() / 1000000);
+    }
+
     @Override
     public void addField(TemporalElementaryDataItem di, LocalTime t) {
         if (t != null) {
-            addIt(di, di.getHhmmss() ? DayTime.timeAsInt(t) : t.getMillisOfDay());
+            addIt(di, di.getHhmmss() ? timeAsInt(t) : t.toNanoOfDay() / 1000000L);
         } else {
             writeNull(di);
         }
@@ -282,7 +296,7 @@ public class AerospikeBinComposer extends AbstractMessageComposer<RuntimeExcepti
     @Override
     public void addField(TemporalElementaryDataItem di, LocalDateTime t) {
         if (t != null) {
-            addIt(di, DayTime.dayAsInt(t) * 1000000000L + (di.getHhmmss() ? DayTime.timeAsInt(t) : t.getMillisOfDay()));
+            addIt(di, DayTime.dayAsInt(t.toLocalDate()) * 1000000000L + (di.getHhmmss() ? timeAsInt(t.toLocalTime()) : t.toLocalTime().toNanoOfDay() / 1000000L));
         } else {
             writeNull(di);
         }
